@@ -19,16 +19,26 @@ namespace ariel{
     //     return _re==0 && _im==0;
     // }
 
-    Fraction Fraction:: operator-(const Fraction& other){return Fraction(1,1);};
+    Fraction Fraction:: operator-(const Fraction& other){
+        return Fraction(1,1);
+        }
     //----------------------------------------
     // binary operators
     //----------------------------------------
 
-    Fraction Fraction:: operator+(const Fraction& other){return Fraction(1,1);};
-    Fraction Fraction:: operator*(const Fraction& other){return Fraction(1,1);};
-    Fraction Fraction:: operator/(const Fraction& other){return Fraction(1,1);}
-    bool Fraction:: operator==(const Fraction& other){return true;};
-    bool Fraction::operator!=(const Fraction& other){return true;};
+    Fraction Fraction:: operator+(const Fraction& other){
+          return Fraction(1,1);
+        }
+    Fraction Fraction:: operator*(const Fraction& other){
+       return Fraction(1,1);
+        }
+    Fraction Fraction:: operator/(const Fraction& other){
+       return Fraction(1,1);
+        }
+    bool Fraction:: operator==(const Fraction& other){    
+        return true;
+        }
+    // bool Fraction::operator!=(const Fraction& other){return true;};
     bool Fraction::operator>(const Fraction& other){return true;};
     bool Fraction::operator>=(const Fraction& other){return true;};
     bool Fraction::operator<(const Fraction& other){return true;};
@@ -147,7 +157,294 @@ namespace ariel{
     }
     //-------------------------------------
 }
+//*********************************
+// namespace ariel{
 
+// // class Fraction {
+
+//     // Constructor. Also works as a conversion from double and
+//     // also as a default ctor.
+//      Fraction::Fraction(int num1,int num2){
+//         this->numA = num1;
+//         this->numB = num2;
+//         reduce();
+//      };
+//     // Logical NOT
+//     // bool operator!() const {
+//     //     return _re==0 && _im==0;
+//     // }
+
+//     Fraction Fraction:: operator-(const Fraction& other){
+//         int nom = ((this->numA)*other.numB) - ((this->numB) * other.numA);
+//         int den = (this->numB)* other.numB;
+//         return Fraction(nom,den);
+//         }
+        
+//     //----------------------------------------
+//     // binary operators
+//     //----------------------------------------
+
+//     Fraction Fraction:: operator+(const Fraction& other){
+//            int nom = ((this->numA)*other.numB) + ((this->numB) * other.numA);
+//         int den = (this->numB)* other.numB;
+//         return Fraction(nom,den);
+//         }
+//     Fraction Fraction:: operator*(const Fraction& other){
+//         int nom = (this->numA)*(other.numA);
+//         int den = (this->numB)* other.numB;
+//         return Fraction(nom,den);
+//         }
+//     Fraction Fraction:: operator/(const Fraction& other){
+//         int nom = ((this->numA)*other.numB) ;
+//         int den = (this->numB)* other.numA;
+//         return Fraction(nom,den);
+//         }
+//     bool Fraction:: operator==(const Fraction& other){
+//         if (this->numA == other.numA && this->numB == other.numB)
+//         {
+//             return true;
+//         }      
+//         return false;
+//         }
+//     // bool Fraction::operator!=(const Fraction& other){return true;};
+//     bool Fraction::operator>(const Fraction& other){
+//         int nom = ((this->numA)*other.numB) ;
+//         int den = (this->numB)* other.numA;
+//         return (nom > den);
+//         }
+//     bool Fraction::operator>=(const Fraction& other){
+//         int nom = ((this->numA)*other.numB) ;
+//         int den = (this->numB)* other.numA;
+//         return (nom >= den);
+//         }
+//     bool Fraction::operator<(const Fraction& other){
+//            int nom = ((this->numA)*other.numB) ;
+//         int den = (this->numB)* other.numA;
+//         return (nom < den);
+//         }
+//     bool Fraction::operator<=(const Fraction& other){
+//            int nom = ((this->numA)*other.numB) ;
+//         int den = (this->numB)* other.numA;
+//         return (nom <= den);
+//         }
+//     Fraction& Fraction:: operator++(){
+//         numA = numA + numB;
+//         return *this;
+//         }
+//     Fraction Fraction:: operator++(int){
+//         Fraction temp(numA, numB);
+//         numA += numB;
+//         reduce();
+//         return temp;
+//         }
+//     Fraction& Fraction:: operator--( ){
+//         numA = numA - numB;
+//         return *this;
+//         }
+//     Fraction Fraction:: operator--(int){
+//         Fraction temp(numA, numB);
+//         numA -= numB;
+//         reduce();
+//         return temp;
+//     }
+//     // Fraction operator<=( );
+
+//     // Fraction& operator+=(const Fraction& other) {
+//     //     _re+= other._re;
+//     //     _im+= other._im;
+//     //     return *this; // for call chaining
+//     // }
+
+//     // Fraction& operator*=(const Fraction& other) {
+//     //     double new_re = _re*other._re - _im*other._im;
+//     //     double new_im = _re*other._im + _im*other._re; 
+//     //     _re = new_re;
+//     //     _im = new_im;
+// 	// 	// version with bug
+// 	// 	// _im = _re*other._im + _im*other._re; 
+// 	// 	// _re = _re*other._re - _im*other._im;
+// 	// 	return *this;
+//     // }
+//     //----------------------------------------
+    
+
+//     /* 
+//     // Compile error:
+//     std::ostream& operator<< (std::ostream& os, const Complex& c) const {
+//         os << "(" << _re << "+" << _im << "i)";
+//         return os;
+//     }
+//     // Compiles, but unexpected - don't do it:
+//     std::ostream& operator<< (std::ostream& os) const {
+//         os << "[[" << _re << "+" << _im << "i]]";
+//         return os;
+//     }
+//     */
+
+//     //-------------------------------------
+//     // friend global binary operators
+//     //-------------------------------------
+//     Fraction operator- (const Fraction& numa, float numc2){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         int nom = ((numa.numA)*curr.numB) - ((numa.numB) * curr.numA);
+//         int den = (numa.numB)* curr.numB;
+//         // Fraction afterOp = numa-curr;
+//         return Fraction(nom,den);
+//         }
+//     Fraction operator- (float numc2,const Fraction& numa){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         Fraction afterOp = curr - numa;
+//         return afterOp;
+//         }
+//     Fraction operator+ (const Fraction& numa, float numc2){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         Fraction afterOp = curr + numa;
+//         return afterOp;
+//         }
+//     Fraction operator+ (float numc2, const Fraction& numa){
+//         return (numa + numc2);
+//         }
+//     Fraction operator* (const Fraction& numa, float numc2){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         Fraction afterOp = curr * numa;
+//         return afterOp;
+//         }
+//     Fraction operator* (float numc2, const Fraction& numa){
+//         return (numa*numc2);
+//         }
+//     Fraction operator/ (const Fraction& numa, float numc2){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         int nom = ((numa.numA)*curr.numB) ;
+//         int den = (numa.numB)* curr.numA;
+//         return Fraction(nom,den);
+//         // Fraction afterOp = numa / curr;
+//         // return afterOp;
+//         }
+//     Fraction operator/ (float numc2,const Fraction& numa){
+//          int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         Fraction afterOp = curr / numa;
+//         return afterOp;
+//         }
+//     bool operator==(const Fraction& numa, float numc2){
+//          int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         return ( curr == numa);
+//         }
+//     bool operator==(float numc2, const Fraction& numa){
+//         return (numa == numc2);
+//         }
+//     // bool operator!=(const Fraction& numa, float numc2){return true;};
+//     // bool operator!=(float numc2, const Fraction& numa){return true;};
+//     bool operator>(const Fraction& numa, float numc2){
+//          int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         int nom = ((numa.numA)*curr.numB) ;
+//         int den = (numa.numB)* curr.numA;
+//         return (nom > den);
+//         }
+//     bool operator>(float numc2, const Fraction& numa){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         return ( curr > numa);
+//         }
+//     bool operator>=(const Fraction& numa, float numc2){
+//          int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         int nom = ((numa.numA)*curr.numB) ;
+//         int den = (numa.numB)* curr.numA;
+//         return (nom >= den);
+//         }
+//     bool operator>=(float numc2, const Fraction& numa){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         return ( curr >= numa);
+//         }
+//     bool operator<(const Fraction& numa, float numc2){
+//          int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         int nom = ((numa.numA)*curr.numB) ;
+//         int den = (numa.numB)* curr.numA;
+//         return (nom < den);
+//         }
+//     bool operator<(float numc2, const Fraction& numa){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         return (curr < numa );
+//         }
+//     bool operator<=(const Fraction& numa, float numc2){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         int nom = ((numa.numA)*curr.numB) ;
+//         int den = (numa.numB)* curr.numA;
+//         return (nom <= den);
+//         }
+//     bool operator<=(float numc2, const Fraction& numa){
+//         int biggrThen = (int) (numc2*1000);
+//         Fraction curr(biggrThen,1000);
+//         return (curr <= numa );
+//         }
+//     void Fraction::reduce(){
+
+//     }
+//        // friend Fraction operator+ (const Fraction& c1, const Fraction& c2);
+//     // friend bool operator==(const Fraction& c1, const Fraction& c2);
+//     // friend bool operator!=(const Fraction& c1, const Fraction& c2);
+
+   
+//     //----------------------------------
+//     // friend global IO operators
+//     //----------------------------------
+//     std::ostream& operator<< (std::ostream& osnum, const Fraction& numc){
+//         // return (os << c.numA << '/' << c.numB << " " );
+//         return osnum;
+//     }
+//     std::istream& operator>> (std::istream& osnum , Fraction& numc){
+
+//     //---------------------------------------------
+//     // Does not check format
+//     //---------------------------------------------
+//     ///********
+//     // char ch;
+//     // return (os >> c.numA >> ch >> c.numB >> ch);
+//     ////////////*******
+//     return osnum;
+
+//     //---------------------------------------------
+
+//     // //---------------------------------------------
+//     // // Checks format, with rewind on failure.
+//     // //---------------------------------------------
+//     // double new_re = 0, new_im = 0;
+
+//     // // remember place for rewinding
+//     // ios::pos_type startPosition = os.tellg();
+
+//     // if ( (!(os >> new_re))                 ||
+//     //      (!getAndCheckNextCharIs(os,'+'))  ||
+//     //      (!(os >> new_im))                 ||
+//     //      (!(getAndCheckNextCharIs(os,'i'))) ) {
+
+//     //     // rewind on error
+//     //     auto errorState = os.rdstate(); // remember error state
+//     //     os.clear(); // clear error so seekg will work
+//     //     os.seekg(startPosition); // rewind
+//     //     os.clear(errorState); // set back the error flag
+//     // } else {
+//     //     c._re = new_re;
+//     //     c._im = new_im;
+//     // }
+
+//     // return os;
+//     }
+//     //-------------------------------------
+// }
+/////////**************************************************************************************************************
 // private:
 //     int numerator_;
 //     int denominator_;

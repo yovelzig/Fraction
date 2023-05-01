@@ -37,7 +37,7 @@ public:
     Fraction operator*(const Fraction& other);
     Fraction operator/(const Fraction& other);
     bool operator==(const Fraction& other);
-    bool operator!=(const Fraction& other);
+    // bool operator!=(const Fraction& other);
     bool operator>(const Fraction& other);
     bool operator>=(const Fraction& other);
     bool operator<(const Fraction& other);
@@ -93,8 +93,8 @@ public:
     friend Fraction operator/ (float numc2,const Fraction& numa);
     friend bool operator==(const Fraction& numa, float numc2);
     friend bool operator==(float numc2, const Fraction& numa);
-    friend bool operator!=(const Fraction& numa, float numc2);
-    friend bool operator!=(float numc2, const Fraction& numa);
+    // friend bool operator!=(const Fraction& numa, float numc2);
+    // friend bool operator!=(float numc2, const Fraction& numa);
     friend bool operator>(const Fraction& numa, float numc2);
     friend bool operator>(float numc2, const Fraction& numa);
     friend bool operator>=(const Fraction& numa, float numc2);
